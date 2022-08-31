@@ -6,6 +6,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import no.acntech.project101.company.model.BrregRespons;
 
+import java.net.URI;
+
 @Component
 public class BrregRestClient {
 
@@ -17,11 +19,10 @@ public class BrregRestClient {
         this.webClient = webClientBuilder.build();
     }
 
-    public String lookupOrganizationName(final String organisasjonsnummer) {
-        final var uri = UriComponentsBuilder
-                .fromUriString(url)
-                .buildAndExpand(organisasjonsnummer)
-                .toUri();
+    public String lookOrganization(final String organisasjonsnummer) {
+        System.out.println();
+        final var uri = getUri(organisasjonsnummer);
+
 
         final var brregRespons = webClient.get()
                 .uri(uri)
@@ -31,5 +32,12 @@ public class BrregRestClient {
 
         return brregRespons.map(respons -> respons.data().name())
                 .orElse(null);
+    }
+
+    private URI getUri(String organisasjonsnummer) {
+        return UriComponentsBuilder
+                .fromUriString(url)
+                .buildAndExpand(organisasjonsnummer)
+                .toUri();
     }
 }

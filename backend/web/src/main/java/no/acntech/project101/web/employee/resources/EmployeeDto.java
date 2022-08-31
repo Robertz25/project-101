@@ -11,7 +11,7 @@ public record EmployeeDto(
         Long id,
         @NotBlank String firstName,
         @NotBlank String lastName,
-        @NotNull LocalDate dateOfBirth,
+        @NotNull LocalDate date_of_birth,
         @NotNull Long companyId
 ) {
 

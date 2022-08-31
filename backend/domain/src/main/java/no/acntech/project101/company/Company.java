@@ -1,10 +1,6 @@
 package no.acntech.project101.company;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Company {
@@ -21,6 +17,7 @@ public class Company {
 
 
     //TODO add mapping for list of employees if you have time
+
 
     public Company() {
     }

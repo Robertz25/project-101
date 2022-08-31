@@ -10,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -44,7 +43,7 @@ class CompanyServiceTest {
         var orgNr = "123456789";
         var companyName = "CompanyName";
         final var company = new Company(companyName, orgNr);
-        when(brregRestClient.lookupOrganizationName(orgNr)).thenReturn(companyName);
+        when(brregRestClient.lookOrganization(orgNr)).thenReturn(companyName);
         when(companyRepository.save(any(Company.class))).thenReturn(company);
 
         final var savedCompany = companyService.save(orgNr);

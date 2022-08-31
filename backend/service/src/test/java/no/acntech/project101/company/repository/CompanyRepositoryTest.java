@@ -16,12 +16,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ContextConfiguration(classes = CompanyRepository.class)
 class CompanyRepositoryTest {
 
+    public static final String ORG_NR = "123456789";
     @Autowired
     private CompanyRepository companyRepository;
 
     @Test
     void save() {
-        final var company = new Company("CompanyName", "123456789");
+        final var company = new Company("CompanyName", ORG_NR);
         final var savedCompany = companyRepository.save(company);
         assertThat(savedCompany.getId()).isNotNull();
         assertThat(savedCompany.getCompanyName()).isEqualTo(company.getCompanyName());

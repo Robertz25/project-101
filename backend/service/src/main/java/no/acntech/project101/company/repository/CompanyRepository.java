@@ -6,4 +6,6 @@ import no.acntech.project101.company.Company;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
 
+
+
 }
